@@ -44,6 +44,7 @@
     chdir: "{{ convert_image_working_dir }}"
   environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
 
 - name: collect diagnostic log from undercloud image
@@ -54,4 +55,5 @@
     chdir: "{{ convert_image_working_dir }}"
   environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"

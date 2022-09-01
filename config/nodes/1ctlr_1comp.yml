@@ -32,7 +32,7 @@ topology_map:
       - network: tenant
         subnet: tenant_subnet
     network_config:
-      template: templates/multiple_nics/multiple_nics_dvr.j2
+      template: templates/single_nic_vlans/single_nic_vlans.j2
       default_route_network:
         - external
     # grow /srv to 50% of remaining disk space to store swift object content
@@ -56,4 +56,4 @@ topology_map:
       - network: storage
         subnet: storage_subnet
     network_config:
-      template: templates/multiple_nics/multiple_nics_dvr.j2
+      template: templates/single_nic_vlans/single_nic_vlans.j2

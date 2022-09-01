@@ -30,6 +30,7 @@
 - when: undercloud_vol_check is failed
   environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
   block:
     # Conditionally include a playbook for all the images specified
@@ -202,6 +203,7 @@
         virt-filesystems -a {{ working_dir }}/undercloud.qcow2
       environment:
         LIBGUESTFS_BACKEND: direct
+        LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
       register: undercloud_partitions
 
 - when:
@@ -239,6 +241,7 @@
         '{{ working_dir }}/undercloud-resized.qcow2'
       environment:
         LIBGUESTFS_BACKEND: direct
+        LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
         LIBGUESTFS_DEBUG: 1
         LIBGUESTFS_TRACE: 1
 
@@ -257,6 +260,7 @@
         exit 1; fi'
       environment:
         LIBGUESTFS_BACKEND: direct
+        LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
         LIBGUESTFS_DEBUG: 1
         LIBGUESTFS_TRACE: 1
 
@@ -282,6 +286,7 @@
         exit 1; fi'
       environment:
         LIBGUESTFS_BACKEND: direct
+        LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
         LIBGUESTFS_DEBUG: 1
         LIBGUESTFS_TRACE: 1
 
@@ -290,6 +295,7 @@
         libvirt_environment:
           LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
           LIBGUESTFS_BACKEND: "direct"
+          LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
         cacheable: true
       when: ssh_user == "root"
 

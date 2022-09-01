@@ -1,4 +1,4 @@
-git+https://opendev.org/openstack/tripleo-quickstart-extras/#egg=tripleo-quickstart-extras
+git+https://github.com/karelyatin/tripleo-quickstart-extras/#egg=tripleo-quickstart-extras
 git+https://opendev.org/openstack/tripleo-ha-utils/#egg=tripleo-ha-utils
 # browbeat is no longer supported integrated w/ tq
 #git+https://opendev.org/x/browbeat/#egg=browbeat

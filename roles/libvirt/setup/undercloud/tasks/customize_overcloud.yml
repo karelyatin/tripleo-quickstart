@@ -7,6 +7,7 @@
 
 - environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
   block:
     # We need to extract the overcloud image, if it's not already extracted.

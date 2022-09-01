@@ -6,6 +6,7 @@
 
 - environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
   block:
     - when: not baseos_as_undercloud|bool or overcloud_as_undercloud|bool
