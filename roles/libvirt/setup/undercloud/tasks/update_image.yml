@@ -19,6 +19,7 @@
     chdir: "{{ working_dir }}"
   environment:
     LIBGUESTFS_BACKEND: direct
+    LIBGUESTFS_PATH: "{{ lookup( 'env', 'LIBGUESTFS_PATH')|default(omit) }}"
     LIBVIRT_DEFAULT_URI: "{{ libvirt_uri }}"
   with_items: "{{ qcow_images.files | default([]) }}"
   changed_when: true
